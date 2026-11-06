@@ -33,4 +33,14 @@ class PipelineControllerTest {
         .andExpect(jsonPath("$.environment").value("OpenShift Sandbox"))
         .andExpect(jsonPath("$.message").value("Pipeline successfully executed"));
   }
+
+  @Test
+  void shouldReturnOkForRootPath() throws Exception {
+    mockMvc
+        .perform(get("/").contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.status").value("UP"))
+        .andExpect(jsonPath("$.environment").value("OpenShift Sandbox"))
+        .andExpect(jsonPath("$.message").value("Pipeline successfully executed"));
+  }
 }

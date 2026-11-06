@@ -12,7 +12,7 @@ import java.util.Map;
  */
 @RestController
 public class PipelineController {
-  @GetMapping("/api/status")
+  @GetMapping({"/", "/api/status"})
   public Map<String, String> getStatus() {
     return Map.of(
         "status", "UP",
